@@ -73,72 +73,105 @@
                 </form>
             </div>
             <br><br>
+            <div id="chefs" class="col s12" style="position: relative; width: 90%; margin-left: 5%;">
+                <div class="row" style="position: relative; width: 50%; margin-left: 25%;">
+                    <form class="col s12" onsubmit="return rechercheChef();" name="chef" method="" action="">
+                        <div class="row">
+                            <div class="input-field col s8">
+                                <i class="material-icons prefix">search</i>
+                                <input id="recherche" type="text" required="required">
+                                <label for="recherche">Rechercher une matière</label>
+                            </div> 
+                            <div class="input-field col s4">
+                                <button class="btn btn-large" style="background: #00E676;">Rechercher</button>
+                            </div> 
+                        </div>
+                    </form>
+                </div>
+                <ul class="collapsible" style="position: relative; width: 90%; margin-left: 5%;">
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons left">book</i><span class="title">Nom de la matiere</span></a>
+                            
+                        </div>
+                    </li>
+                </ul>
+                <br><br>
+            </div>
         </div>
         <div id="classes" class="col s12 center">
             <p style="text-align: center; font-family: Verdana; font-size: 1.5em;">Enregistrement des différentes classes de chauque filière de chaque école. Veuilez remplir les champs ci-dessous.</p>
             <div class="row" style="position: relative; width: 70%; margin-left: 15%;">
-                <form class="col s12" onsubmit="return enregistrerClasse();" name="enregistrementClasse" method="" action="">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <i class="material-icons prefix">home</i>
-                            <input id="ecole" type="text" required="required">
-                            <label for="ecole">Ecole</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <select id="nombreFiliere" class="browser-default" style="position: relative; width: 91%; margin-left: 9.5%;" required="required">
-                                <option disabled selected>Choix du nombre de filières dans cette école</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">...</option>
-                            </select>
-                        </div>
-                        <div class="input-field col s6">
-                            <i class="material-icons prefix">school</i>
-                            <input id="filiere" type="text" required="required" disabled="=disabled">
-                            <label for="filiere">Filière</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <select id="nombreClasse" class="browser-default" style="position: relative; width: 91%; margin-left: 9.5%;" required="required" disabled="=disabled">
-                                <option value="" disabled selected>Choix du nombre de classes dans cette filière</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">...</option>
-                            </select>
-                        </div>
-                        <div class="input-field col s6">
+                <form class="col s12" onsubmit="return enregistrerClasse();" id="enregistrementClasse" name="enregistrementClasse" method="" action="">
+                    <div class="row" id="dynamic_field">
+                        <div class="input-field col s12">
                             <i class="material-icons prefix">work</i>
-                            <input id="classe" type="text" required="required" disabled="=disabled">
+                            <input id="classe" type="text" required="required">
                             <label for="classe">Classe</label>
                         </div>
-                        <div class="input-field col s6">
-                            <select id="nombreMatiere" class="browser-default" style="position: relative; width: 91%; margin-left: 9.5%;" required="required" disabled="=disabled">
-                                <option value="" disabled selected>Choix du nombre de matières dans cette classe</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">...</option>
-                            </select>
-                        </div>
-                        <div class="input-field col s6">
-                            <i class="material-icons prefix">book</i>
-                            <input id="matiere" type="text" required="required" disabled="=disabled">
-                            <label for="matiere">Matiere</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <p style="text-align: center; font-family: Verdana; font-size: 1.2em;">(Exemple de saisie pour le syllabus) I - le titre : le nombre d'heure ; Ainsi de suite ;</p>
-                        </div>
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">book</i>
-                            <textarea class="materialize-textarea" id="syllabus" type="text" disabled="disabled" required="required"></textarea>
-                            <label for="syllabus">Syllabus</label>
+                        <div>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">book</i>
+                                <input id="code" type="text" required="required">
+                                <label for="code">Code matière N°1</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">book</i>
+                                <input id="matiere" type="text" required="required">
+                                <label for="matiere">Matiere</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <p style="text-align: center; font-family: Verdana; font-size: 1.2em;">(Exemple de saisie pour le syllabus) I - le titre : le nombre d'heure ; Ainsi de suite ;</p>
+                            </div>
+                            <div class="input-field col s8">
+                                <i class="material-icons prefix">book</i>
+                                <textarea class="materialize-textarea" id="syllabus" type="text" required="required"></textarea>
+                                <label for="syllabus">Syllabus</label>
+                            </div>
+                            <div class="input-field col s4">
+                                <button class="btn btn-large" id="add" name="add" onclick="addMatiere();" style="position: relative; background: #00E676; font-size: 0.9em;">Ajouter une nouvelle matière</button>
+                            </div>
                         </div>
                     </div>
                     <button class="btn btn-large" type="submit" style="position: relative; margin-left: 83%; background: #00E676;">Enregistrer</button>
                 </form>
             </div>
             <br><br>
+            <div id="chefs" class="col s12" style="position: relative; width: 90%; margin-left: 5%;">
+                <div class="row" style="position: relative; width: 50%; margin-left: 25%;">
+                    <form class="col s12" onsubmit="return rechercheChef();" name="chef" method="" action="">
+                        <div class="row">
+                            <div class="input-field col s8">
+                                <i class="material-icons prefix">search</i>
+                                <input id="recherche" type="text" required="required">
+                                <label for="recherche">Rechercher une matière</label>
+                            </div> 
+                            <div class="input-field col s4">
+                                <button class="btn btn-large" style="background: #00E676;">Rechercher</button>
+                            </div> 
+                        </div>
+                    </form>
+                </div>
+                <ul class="collapsible" style="position: relative; width: 90%; margin-left: 5%;">
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">work</i>Nom de la classe</div>
+                        <div class="collapsible-body">
+                            <ul class="collection" style="position: relative; width: 90%; margin-left: 5%;">
+                                <li class="collection-item avatar">
+                                    <div>
+                                        <i class="material-icons left">book</i>
+                                    </div>
+                                    <div>
+                                        <span class="title">Nom de la matiere</span>
+                                    </div>
+                                    <br>
+                                    <a class="secondary-content"><i class="material-icons">star</i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <br><br>
+            </div>
         </div>
         
         <!-- Javascript -->
@@ -164,7 +197,7 @@
             ecole.addEventListener("blur", verifieEcole, true);
             filiere.addEventListener("blur", verifieFiliere, true);
             classe.addEventListener("blur", verifieClasse, true);
-            matiere.addEventListener("blur", verifieMatiere, true); --%>
+            matiere.addEventListener("blur", verifieMatiere, true);
             
             var nbrFiliere = document.getElementById('nombreFiliere');
             var filiereInput = document.getElementById('filiere');
@@ -179,7 +212,7 @@
                 }
             });
             
-            <%-- function enregistrementUser() {
+            function enregistrementUser() {
                 if(nom.value === "") {
                     nom.focus();
                     retuen false;
@@ -224,6 +257,23 @@
             function verifieMatiere() {
                 
             } --%>
+        </script>
+        
+        <script>
+            var i=2;
+            function dynamic() {
+                return '<div><div class="input-field col s6"><i class="material-icons prefix">book</i><input id="code" type="text" required="required"><label for="code">Code matière N°'+i+'</label></div><div class="input-field col s6"><i class="material-icons prefix">book</i><input id="matiere" type="text" required="required"><label for="matiere">Matiere</label></div><div class="input-field col s12"><p style="text-align: center; font-family: Verdana; font-size: 1.2em;">(Exemple de saisie pour le syllabus) I - le titre : le nombre d heure ; Ainsi de suite ;</p></div><div class="input-field col s8"><i class="material-icons prefix">book</i><textarea class="materialize-textarea" id="syllabus" type="text" required="required"></textarea><label for="syllabus">Syllabus</label></div><div class="input-field col s4"><button class="btn btn-large" id="remove" name="remove" onclick="removeMatiere(this);" style="position: relative; background: #00E676; font-size: 0.9em;">Supprimer la matière</button></div></div>';
+            }
+            
+            function addMatiere() {
+                var div = document.createElement('DIV');
+                div.innerHTML = dynamic();
+                document.getElementById("dynamic_field").appendChild(div);
+            }
+            
+            function removeMatiere(div) {
+                document.getElementById("dynamic_field").removeChild(div.parentNode.parentNode.parentNode);
+            }
         </script>
         <!-- Fin -->
         

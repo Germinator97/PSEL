@@ -39,7 +39,7 @@
     function user() {
         var username = prompt("Veuillez saisir votre username :");
         var password = prompt("Veuillez saisir votre mot de passe :");
-        if ((username === "admin") && (password === "admin") ) {
+        if ((username !== "") && (password !== "") ) {
             alert('Merci ' + username + ', vous êtes maintenant connecté !');
         }
         else {

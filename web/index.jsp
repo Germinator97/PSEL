@@ -23,7 +23,7 @@
         </ul>            
         <div id="chefs" class="col s12 center">
             <div class="row" style="position: relative; width: 50%; margin-left: 25%;">
-                <form class="col s12" onsubmit="return rechercheChef();" name="chef" method="" action="">
+                <form class="col s12" onsubmit="return rechercheChef();" name="recherchechef" method="" action="">
                     <div class="row">
                         <div class="input-field col s8">
                             <i class="material-icons prefix">search</i>
