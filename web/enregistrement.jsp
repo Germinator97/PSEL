@@ -73,7 +73,7 @@
                 </form>
             </div>
             <br><br>
-            <div id="chefs" class="col s12" style="position: relative; width: 90%; margin-left: 5%;">
+            <div class="col s12" style="position: relative; width: 90%; margin-left: 5%;">
                 <div class="row" style="position: relative; width: 50%; margin-left: 25%;">
                     <form class="col s12" onsubmit="return rechercheChef();" name="chef" method="" action="">
                         <div class="row">
@@ -90,7 +90,7 @@
                 </div>
                 <ul class="collapsible" style="position: relative; width: 90%; margin-left: 5%;">
                     <li>
-                        <div class="collapsible-header"><i class="material-icons left">book</i><span class="title">Nom de la matiere</span></a>
+                        <div class="collapsible-header"><i class="material-icons left">person</i><span class="title">Nom de l'utilisateur</span></a>
                             
                         </div>
                     </li>
@@ -136,7 +136,7 @@
                 </form>
             </div>
             <br><br>
-            <div id="chefs" class="col s12" style="position: relative; width: 90%; margin-left: 5%;">
+            <div class="col s12" style="position: relative; width: 90%; margin-left: 5%;">
                 <div class="row" style="position: relative; width: 50%; margin-left: 25%;">
                     <form class="col s12" onsubmit="return rechercheChef();" name="chef" method="" action="">
                         <div class="row">
@@ -155,18 +155,14 @@
                     <li>
                         <div class="collapsible-header"><i class="material-icons">work</i>Nom de la classe</div>
                         <div class="collapsible-body">
-                            <ul class="collection" style="position: relative; width: 90%; margin-left: 5%;">
-                                <li class="collection-item avatar">
-                                    <div>
-                                        <i class="material-icons left">book</i>
-                                    </div>
-                                    <div>
-                                        <span class="title">Nom de la matiere</span>
-                                    </div>
-                                    <br>
-                                    <a class="secondary-content"><i class="material-icons">star</i></a>
-                                </li>
-                            </ul>
+                            <div class="collapsible-header">
+                                <div>
+                                    <i class="material-icons left">book</i>
+                                </div>
+                                <div>
+                                <span class="title">Nom de la matiere</span>
+                                </div>
+                            </div>
                         </div>
                     </li>
                 </ul>

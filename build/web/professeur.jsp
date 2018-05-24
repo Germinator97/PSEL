@@ -1,3 +1,9 @@
+<%-- 
+    Document   : professeur
+    Created on : 24 mai 2018, 21:38:26
+    Author     : germinator
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -14,9 +20,9 @@
         
         <!-- Importation du fichier header.jsp  -->
         <jsp:include page="header.jsp"></jsp:include>
-
-        <br> 
-        <div id="acceuil" class="col s12 center">
+        
+        <br>
+        <div id="professeurs" class="col s12 center">
             <div class="row" style="position: relative; width: 50%; margin-left: 25%;">
                 <form class="col s12" onsubmit="return recherche();" name="recherche" method="" action="">
                     <div class="row">
@@ -69,8 +75,6 @@
             <br><br>
         </div>
         
-        
-        
         <!-- Javascript -->
         <!-- Début -->
         <script>
@@ -94,7 +98,7 @@
         
         <!-- Importation du fichier body.jsp  -->
         <jsp:include page="body.jsp"></jsp:include>
-      
+        
     </body>
     
 </html>

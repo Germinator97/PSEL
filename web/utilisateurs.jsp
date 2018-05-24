@@ -78,60 +78,42 @@
         </div>
         <ul class="collapsible" style="position: relative; width: 90%; margin-left: 5%;">
             <li>
-                <div class="collapsible-header"><i class="material-icons">person</i>Direction</div>
+                <div class="collapsible-header"><i class="material-icons">people</i>Direction</div>
                 <div class="collapsible-body">
-                    <ul class="collection" style="position: relative; width: 90%; margin-left: 5%;">
-                        <li class="collection-item avatar">
-                            <div>
-                                <i class="material-icons left">person</i>
-                            </div>
-                            <div>
-                                <span class="title">Statut</span>
-                                <p>Noms et prénoms
-                                    Contacts et email
-                                </p>
-                            </div>
-                            <a class="secondary-content"><i class="material-icons">star</i></a>
-                        </li>
-                    </ul>
+                    <div class="collapsible-header">
+                        <div>
+                            <i class="material-icons left">person</i>
+                        </div>
+                        <div>
+                            <span class="title">Nom de l'utilisateur son contact et son email</span>
+                        </div>
+                    </div>
                 </div>
             </li>
             <li>
-                <div class="collapsible-header"><i class="material-icons">person</i>Professeurs</div>
+                <div class="collapsible-header"><i class="material-icons">people</i>Professeurs</div>
                 <div class="collapsible-body">
-                    <ul class="collection" style="position: relative; width: 90%; margin-left: 5%;">
-                        <li class="collection-item avatar">
-                            <div>
-                                <i class="material-icons left">person</i>
-                            </div>
-                            <div>
-                                <span class="title">Statut</span>
-                                <p>Noms et prénoms
-                                    Contacts et email
-                                </p>
-                            </div>
-                            <a class="secondary-content"><i class="material-icons">star</i></a>
-                        </li>
-                    </ul>
+                    <div class="collapsible-header">
+                        <div>
+                            <i class="material-icons left">person</i>
+                        </div>
+                        <div>
+                            <span class="title">Nom de l'utilisateur son contact et son email</span>
+                        </div>
+                    </div>
                 </div>
             </li>
             <li>
-                <div class="collapsible-header"><i class="material-icons">person</i>Chefs de classes</div>
+                <div class="collapsible-header"><i class="material-icons">people</i>Chefs de classes</div>
                 <div class="collapsible-body">
-                    <ul class="collection" style="position: relative; width: 90%; margin-left: 5%;">
-                        <li class="collection-item avatar">
-                            <div>
-                                <i class="material-icons left">person</i>
-                            </div>
-                            <div>
-                                <span class="title">Statut</span>
-                                <p>Noms et prénoms
-                                    Contacts et email
-                                </p>
-                            </div>
-                            <a class="secondary-content"><i class="material-icons">star</i></a>
-                        </li>
-                    </ul>
+                    <div class="collapsible-header">
+                        <div>
+                            <i class="material-icons left">person</i>
+                        </div>
+                        <div>
+                            <span class="title">Nom de l'utilisateur son contact et son email</span>
+                        </div>
+                    </div>
                 </div>
             </li>
         </ul>
