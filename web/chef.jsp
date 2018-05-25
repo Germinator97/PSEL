@@ -45,7 +45,7 @@
                             <li class="collection-item avatar">
                                 <p>Ajouter un contenu qui montrera le syllabus sous forme de formulaire.</p>
                                 <br>
-                                <form class="col s12" onsubmit="return progression();" name="progression" method="" action="">
+                                <form class="col s12" onsubmit="return enregistrer();" name="progression" method="" action="">
                                     <div class="row">
                                         <p>
                                             <label>
@@ -72,7 +72,7 @@
             }
             
             
-            function progression() {
+            function enregistrer() {
                 
             }
         </script>
