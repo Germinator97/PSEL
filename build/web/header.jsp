@@ -17,12 +17,12 @@
                 <li>
                     <a class='dropdown-trigger' data-target='dropdown' style="font-family: verdana; font-size: 1.3em;"><i class="material-icons prefix left">book</i>Progression</a>
                     <ul id='dropdown' class='dropdown-content'>
-                      <li><a class="modal-trigger" href="loginChef.jsp"><i class="material-icons">book</i>Chef</a></li>
-                      <li><a class="modal-trigger" href="loginProfesseur.jsp"><i class="material-icons">book</i>Professeur</a></li>
+                      <li><a class="modal-trigger" href="login.jsp"><i class="material-icons">book</i>Chef</a></li>
+                      <li><a class="modal-trigger" href="login.jsp"><i class="material-icons">book</i>Professeur</a></li>
                     </ul>
                 </li>
-                <li><a href="loginEnregistrement.jsp" style="font-family: verdana; font-size: 1.3em;"><i class="material-icons prefix left">edit</i>Enregistrement</a></li>
-                <li><a href="loginUtilisateur.jsp" style="font-family: verdana; font-size: 1.3em;"><i class="material-icons prefix left">person</i>Utilisateurs</a></li>
+                <li><a href="login.jsp" style="font-family: verdana; font-size: 1.3em;"><i class="material-icons prefix left">edit</i>Enregistrement</a></li>
+                <li><a href="login.jsp" style="font-family: verdana; font-size: 1.3em;"><i class="material-icons prefix left">person</i>Utilisateurs</a></li>
             </ul>
         </div>
     </nav>

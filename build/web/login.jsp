@@ -18,19 +18,48 @@
     
     </head>
     
-    <body>
+    <body style="background-image: url('Images/inp-hb sud 07.jpg')">
     
         <div class="logo">PSEL</div>
-        <form class="login-block" name="connexion" action="">
+        <form class="login-block" onsubmit="return validate();" method="post" id="connexion" name="connexion" action="">
             <h1>Login</h1>
+            <select id="statut" name="statut">
+                <option value="statut" disabled selected>Statut</option>
+                <option value="élève">Elève</option>
+                <option value="professeur">Professeur</option>
+                <option value="direction">Direction</option>
+            </select>
             <input type="text" placeholder="Nom d'utilisateur" id="username" name="username" />
             <input type="password" placeholder="Mot de passe" id="password" name="password" />
             <button>Valider</button>
         </form>
-        <%--
+        
         <script>
             function validate() {
+                
+                var link = document.getElementById("connexion");
+                
                 var user = document.connexion.username.value;
+
+                var statut = document.getElementById("statut").value;
+                
+                if (statut === "statut") {
+                    alert("Veuillez celectionner un statut");
+                    document.connexion.statut.focus();
+                    return false;
+                }
+                
+                if (statut === "élève") {
+                    link.setAttribute("action", "chef.jsp");
+                }
+                
+                if (statut === "professeur") {
+                    link.setAttribute("action", "professeur.jsp");
+                }
+                
+                if (statut === "direction") {
+                    link.setAttribute("action", "enregistrement.jsp");
+                }
                 
                 if (user === "") {
                     alert("Veuillez entrer votre nom d'utilisateur");
@@ -54,7 +83,6 @@
                 }
             }
         </script>
-        --%>
         
     </body>
     
