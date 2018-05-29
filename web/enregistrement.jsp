@@ -5,6 +5,11 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix = "sql" uri = "http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix = "x" uri = "http://java.sun.com/jsp/jstl/xml" %>
+<%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 
 <html>
@@ -30,11 +35,11 @@
         <div id="utilisateurs" class="col s12 center">
             <p style="text-align: center; font-family: Verdana; font-size: 1.5em;">Enregistrement des membres qui pourront avoir un accès total à l'application. Veuilez remplir les champs ci-dessous.</p>
             <div class="row" style="position: relative; width: 70%; margin-left: 15%;">
-                <form class="col s12" onsubmit="return enregistrerUser();" name="enregistrementUser" method="" action="">
+                <form class="col s12" onsubmit="return enregistrerUser();" name="enregistrementUser" id="enregistrementUser" method="" action="">
                     <div class="row">
                         <div class="input-field col s6">
-                            <select id="statut" class="browser-default" style="position: relative; width: 91%; margin-left: 9.5%;" required="required">
-                                <option disabled selected>Statut</option>
+                            <select id="statut" name="statut" class="browser-default" style="position: relative; width: 91%; margin-left: 9.5%;" required="required">
+                                <option value="statut" disabled selected>Statut</option>
                                 <option value="élève">Elève</option>
                                 <option value="professeur">Professeur</option>
                                 <option value="direction">Direction</option>
@@ -61,11 +66,24 @@
                             <label for="telephone">Telephone</label>
                         </div>
                         <div class="input-field col s6">
-                            <select id="classe" class="browser-default" style="position: relative; width: 91%; height: 20%; margin-left: 9.5%;" required="required" multiple="multiple">
+                            <i class="material-icons prefix"></i>
+                            <input disabled="disabled">
+                            <label></label>
+                        </div>
+                        <div class="input-field col s6">
+                            <select id="classeUser" name="classeUser" class="browser-default" style="position: relative; width: 91%; height: auto; margin-left: 9.5%;" required="required" multiple="multiple" disabled="disabled">
                                 <option disabled selected>Classe</option>
                                 <option value="ingInfo2">ING INFO 2</option>
                                 <option value="ingTelecom2">ING TELECOM 2</option>
                                 <option value="ingE2i2">ING E2I 2</option>
+                            </select>
+                        </div>
+                        <div class="input-field col s6">
+                            <select id="matiereUser" name="matiereUser" class="browser-default" style="position: relative; width: 91%; height: auto; margin-left: 9.5%;" required="required" multiple="multiple" disabled="disabled">
+                                <option disabled selected>Matière</option>
+                                <option value="code1">Code1 Matière1</option>
+                                <option value="code2">Code2 Matière2</option>
+                                <option value="code3">Code3 Matière3</option>
                             </select>
                         </div>
                     </div>
@@ -75,7 +93,7 @@
             <br><br>
             <div class="col s12" style="position: relative; width: 90%; margin-left: 5%;">
                 <div class="row" style="position: relative; width: 50%; margin-left: 25%;">
-                    <form class="col s12" onsubmit="return rechercheChef();" name="chef" method="" action="">
+                    <form class="col s12" onsubmit="return rechercheUser();" name="rechercheUser" id="rechercheUser" method="" action="">
                         <div class="row">
                             <div class="input-field col s8">
                                 <i class="material-icons prefix">search</i>
@@ -88,13 +106,23 @@
                         </div>
                     </form>
                 </div>
+                
+                <!-- Affiche la liste des utilisateurs -->
+                <sql:setDataSource driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3309/db" user="root" password=""/>
+                <!-- sélectionner tous les utilisateurs -->
+                <sql:query sql="SELECT * FROM compte ORDER BY username DESC" var="comptes"/>
+                <!-- afficher les utilisateurs -->
                 <ul class="collapsible" style="position: relative; width: 90%; margin-left: 5%;">
-                    <li>
-                        <div class="collapsible-header"><i class="material-icons left">person</i><span class="title">Nom de l'utilisateur</span></a>
-                            
-                        </div>
-                    </li>
+                    <c:forEach var="compte" begin="0" items="${comptes.rows}">
+                        <li>
+                            <div class="collapsible-header">
+                                <i class="material-icons left">person</i>
+                                <span class="title"><c:out value="${compte.username}"/></span>
+                            </div>
+                        </li>
+                    </c:forEach>
                 </ul>
+                
                 <br><br>
             </div>
         </div>
@@ -103,33 +131,13 @@
             <div class="row" style="position: relative; width: 70%; margin-left: 15%;">
                 <form class="col s12" onsubmit="return enregistrerClasse();" id="enregistrementClasse" name="enregistrementClasse" method="" action="">
                     <div class="row" id="dynamic_field">
-                        <div class="input-field col s12">
+                        <div class="input-field col s8">
                             <i class="material-icons prefix">work</i>
                             <input id="classe" type="text" required="required">
                             <label for="classe">Classe</label>
                         </div>
-                        <div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix">book</i>
-                                <input id="code" type="text" required="required">
-                                <label for="code">Code matière N°1</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix">book</i>
-                                <input id="matiere" type="text" required="required">
-                                <label for="matiere">Matiere</label>
-                            </div>
-                            <div class="input-field col s12">
-                                <p style="text-align: center; font-family: Verdana; font-size: 1.2em;">(Exemple de saisie pour le syllabus) I - le titre : le nombre d'heure ; Ainsi de suite ;</p>
-                            </div>
-                            <div class="input-field col s8">
-                                <i class="material-icons prefix">book</i>
-                                <textarea class="materialize-textarea" id="syllabus" type="text" required="required"></textarea>
-                                <label for="syllabus">Syllabus</label>
-                            </div>
-                            <div class="input-field col s4">
-                                <button class="btn btn-large" id="add" name="add" onclick="addMatiere();" style="position: relative; background: #00E676; font-size: 0.9em;">Ajouter une nouvelle matière</button>
-                            </div>
+                        <div class="input-field col s4">
+                            <button class="btn btn-large" id="add" name="add" onclick="addMatiere();" style="position: relative; background: #00E676; font-size: 0.9em;">Ajouter une nouvelle matière</button>
                         </div>
                     </div>
                     <button class="btn btn-large" type="submit" style="position: relative; margin-left: 83%; background: #00E676;">Enregistrer</button>
@@ -138,7 +146,7 @@
             <br><br>
             <div class="col s12" style="position: relative; width: 90%; margin-left: 5%;">
                 <div class="row" style="position: relative; width: 50%; margin-left: 25%;">
-                    <form class="col s12" onsubmit="return rechercheChef();" name="chef" method="" action="">
+                    <form class="col s12" onsubmit="return rechercheClasse();" name="rechercheClasse" id="rechercheClasse" method="" action="">
                         <div class="row">
                             <div class="input-field col s8">
                                 <i class="material-icons prefix">search</i>
@@ -174,6 +182,40 @@
         <!-- Début -->
         <script>
             M.AutoInit();
+        </script>
+        
+        <script>
+            var statut = document.getElementById('statut');
+            var classe = document.getElementById('classeUser');
+            var matiere = document.getElementById('matiereUser');
+            
+            statut.addEventListener('change', function() {
+                var valeur = statut.options[statut.selectedIndex].innerHTML;
+                if (valeur === "Professeur") {
+                    classe.disabled = false;
+                    matiere.disabled = false;
+                }
+                if (valeur === "Direction") {
+                    matiere.disabled = true;
+                    classe.disabled = true;
+                }
+                if (valeur === "Elève") {
+                    matiere.disabled = true;
+                    classe.disabled = false;
+                }
+            });
+        </script>
+        
+        <script>
+            function enregistrerUser() {
+                var form = document.getElementById("enregistrementUser");
+                var statut = document.getElementById("statut").value;
+            
+                if (statut === "statut") {
+                    alert("Veuillez sélectionner un statut pour éffectuer un enregistrement");
+                    document.enregistrementUser.statut.focus();
+                    return false;
+                }
         </script>
         
         <script>

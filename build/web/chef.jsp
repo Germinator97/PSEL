@@ -5,6 +5,11 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix = "sql" uri = "http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix = "x" uri = "http://java.sun.com/jsp/jstl/xml" %>
+<%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 
 <html>
@@ -37,9 +42,22 @@
                     </div>
                 </form>
             </div>
+            <%--
+            <ul>
+                <c:forEach var="compte" begin="0" items="${comptes.rows}">
+                    <li>
+                        <c:out value="${compte.username}"/>
+                    </li>
+                </c:forEach>
+            </ul>
+            --%>
+            <sql:setDataSource driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3309/db" user="root" password=""/>
+            <!-- sélectionner toutes les catégories -->
+            <sql:query sql="SELECT * FROM compte ORDER BY username DESC" var="comptes"/>
             <ul class="collapsible" style="position: relative; width: 90%; margin-left: 5%;">
+                <c:forEach var="compte" begin="0" items="${comptes.rows}">
                 <li>
-                    <div class="collapsible-header"><i class="material-icons">book</i>Matière</div>
+                    <div class="collapsible-header"><i class="material-icons">book</i><c:out value="${compte.username}"/></div>
                     <div class="collapsible-body">
                         <ul class="collection" style="position: relative; width: 90%; margin-left: 5%;">
                             <li class="collection-item avatar">
@@ -60,6 +78,7 @@
                         </ul>
                     </div>
                 </li>
+                </c:forEach>
             </ul>
             <br><br>
         </div>

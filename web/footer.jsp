@@ -19,9 +19,9 @@
                 <h5 class="white-text">Menu</h5>
                 <ul>
                     <li><a class="grey-text text-lighten-3" href="index.jsp">Acceuil</a></li>
-                    <li><a class="grey-text text-lighten-3" href="login.jsp">Chef</a></li>
-                    <li><a class="grey-text text-lighten-3" href="login.jsp">Professeur</a></li>
-                    <li><a class="grey-text text-lighten-3" href="login.jsp">Enregistrement</a></li>
+                    <li><a class="grey-text text-lighten-3" href="loginChef.jsp">Chef</a></li>
+                    <li><a class="grey-text text-lighten-3" href="loginProfesseur.jsp">Professeur</a></li>
+                    <li><a class="grey-text text-lighten-3" href="loginDirection.jsp">Enregistrement</a></li>
                     <li><a class="grey-text text-lighten-3" href="login.jsp">Utilisateurs</a></li>
                 </ul>
             </div>

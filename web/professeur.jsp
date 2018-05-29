@@ -5,6 +5,11 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix = "sql" uri = "http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix = "x" uri = "http://java.sun.com/jsp/jstl/xml" %>
+<%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 
 <html>
@@ -37,21 +42,27 @@
                     </div>
                 </form>
             </div>
+            <!-- Affiche la liste des utilisateurs -->
+            <sql:setDataSource driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3309/db" user="root" password=""/>
+            <!-- sélectionner tous les utilisateurs -->
+            <sql:query sql="SELECT * FROM compte ORDER BY username DESC" var="comptes"/>
             <ul class="collapsible" style="position: relative; width: 90%; margin-left: 5%;">
+                <c:forEach var="compte" begin="0" items="${comptes.rows}">
                 <li>
-                    <div class="collapsible-header"><i class="material-icons">work</i>Classe</div>
+                    <div class="collapsible-header"><i class="material-icons">work</i><c:out value="${compte.username}"/></div>
                     <div class="collapsible-body">
                         <ul class="collection" style="position: relative; width: 90%; margin-left: 5%;">
                             <li class="collection-item avatar">
                                 <ul class="collapsible">
+                                    <c:forEach var="compte" begin="0" items="${comptes.rows}">
                                     <li>
-                                       <div class="collapsible-header"><i class="material-icons">book</i>Matière</div>
+                                       <div class="collapsible-header"><i class="material-icons">book</i><c:out value="${compte.username}"/></div>
                                        <div class="collapsible-body">
                                            <ul class="collection">
                                                <li class="collection-item avatar">
                                                     <p>Ajouter un contenu qui montrera le syllabus sous forme de formulaire.</p>
                                                     <br>
-                                                    <form class="col s12" onsubmit="return valider();" name="progression" method="" action="">
+                                                    <form class="col s12" name="progression" method="" action="">
                                                         <div class="row">
                                                             <p>
                                                                 <label>
@@ -66,11 +77,13 @@
                                            </ul>
                                        </div>
                                     </li>
+                                    </c:forEach>
                                 </ul>
                             </li>
                         </ul>
                     </div>
                 </li>
+                </c:forEach>
             </ul>
             <br><br>
         </div>

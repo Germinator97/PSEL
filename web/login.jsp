@@ -21,44 +21,48 @@
     <body style="background-image: url('Images/inp-hb sud 07.jpg')">
     
         <div class="logo">PSEL</div>
-        <form class="login-block" onsubmit="return validate();" method="post" id="connexion" name="connexion" action="">
+        <form class="login-block" onsubmit="return validate();" method="post" id="connexion" name="connexion" action="loginUtilisateur">
             <h1>Login</h1>
-            <select id="statut" name="statut">
+            <select id="statut" name="statut" autofocus>
                 <option value="statut" disabled selected>Statut</option>
-                <option value="élève">Elève</option>
+                <option value="eleve">Elève</option>
                 <option value="professeur">Professeur</option>
                 <option value="direction">Direction</option>
             </select>
             <input type="text" placeholder="Nom d'utilisateur" id="username" name="username" />
             <input type="password" placeholder="Mot de passe" id="password" name="password" />
-            <button>Valider</button>
+            <button type="submit" name="valider">Valider</button>
         </form>
         
         <script>
+            
+            <%
+            
+                HttpSession hs = request.getSession();
+                String id;
+                if (request.getAttribute("id")!=null) {
+                    id = (String)request.getAttribute("id");
+                    if (id != null) {
+                        response.sendRedirect("utilisateurs.jsp");
+                    }
+                    else {
+                        response.sendRedirect("login.jsp");
+                    }
+                }
+
+            %>
             function validate() {
                 
                 var link = document.getElementById("connexion");
                 
                 var user = document.connexion.username.value;
-
+                
                 var statut = document.getElementById("statut").value;
                 
                 if (statut === "statut") {
-                    alert("Veuillez celectionner un statut");
+                    alert("Veuillez sélectionner un statut");
                     document.connexion.statut.focus();
                     return false;
-                }
-                
-                if (statut === "élève") {
-                    link.setAttribute("action", "chef.jsp");
-                }
-                
-                if (statut === "professeur") {
-                    link.setAttribute("action", "professeur.jsp");
-                }
-                
-                if (statut === "direction") {
-                    link.setAttribute("action", "enregistrement.jsp");
                 }
                 
                 if (user === "") {

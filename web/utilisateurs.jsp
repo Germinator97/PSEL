@@ -5,6 +5,11 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix = "sql" uri = "http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix = "x" uri = "http://java.sun.com/jsp/jstl/xml" %>
+<%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 
 <html>
@@ -76,46 +81,31 @@
                 </div>
             </form>
         </div>
+        <!-- Affiche la liste des utilisateurs -->
+        <sql:setDataSource driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3309/db" user="root" password=""/>
+        <!-- sélectionner tous les utilisateurs -->
+        <sql:query sql="SELECT * FROM compte ORDER BY username DESC" var="comptes"/>
         <ul class="collapsible" style="position: relative; width: 90%; margin-left: 5%;">
+            <c:forEach var="compte" begin="0" items="${comptes.rows}">
             <li>
-                <div class="collapsible-header"><i class="material-icons">people</i>Direction</div>
+                <div class="collapsible-header"><i class="material-icons">people</i><c:out value="${compte.username}"/></div>
                 <div class="collapsible-body">
-                    <div class="collapsible-header">
-                        <div>
-                            <i class="material-icons left">person</i>
-                        </div>
-                        <div>
-                            <span class="title">Nom de l'utilisateur son contact et son email</span>
-                        </div>
-                    </div>
+                    <ul class="collection" style="position: relative; width: 90%; margin-left: 5%;">
+                    <li class="collection-item avatar">
+                        <ul class="collapsible">
+                    <c:forEach var="compte" begin="0" items="${comptes.rows}">
+                        <li>
+                            <div class="collapsible-header">
+                                <i class="material-icons">person</i><c:out value="${compte.username}"/>
+                            </div>
+                        </li>
+                    </c:forEach>
+                        </ul>
+                    </li>
+                    </ul>
                 </div>
             </li>
-            <li>
-                <div class="collapsible-header"><i class="material-icons">people</i>Professeurs</div>
-                <div class="collapsible-body">
-                    <div class="collapsible-header">
-                        <div>
-                            <i class="material-icons left">person</i>
-                        </div>
-                        <div>
-                            <span class="title">Nom de l'utilisateur son contact et son email</span>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header"><i class="material-icons">people</i>Chefs de classes</div>
-                <div class="collapsible-body">
-                    <div class="collapsible-header">
-                        <div>
-                            <i class="material-icons left">person</i>
-                        </div>
-                        <div>
-                            <span class="title">Nom de l'utilisateur son contact et son email</span>
-                        </div>
-                    </div>
-                </div>
-            </li>
+            </c:forEach>
         </ul>
         
         <br>
