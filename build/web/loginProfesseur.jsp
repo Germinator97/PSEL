@@ -5,7 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <%@page session="true" %>
+=======
+>>>>>>> 538f6fc28656e3f80e9c05b9b9cd5ecbdc2b6b30
 <!DOCTYPE html>
 
 <html>
@@ -34,12 +37,19 @@
             <%
             
                 HttpSession hs = request.getSession();
+<<<<<<< HEAD
                 int id = 0;
                 if (request.getAttribute("id")!= null) {
                     id = (Integer)request.getAttribute("id");
                     if (id != 0) {
                         session.setAttribute("username", request.getAttribute("username"));
                         session.setAttribute("id", id);
+=======
+                String id;
+                if (request.getAttribute("id")!=null) {
+                    id = (String)request.getAttribute("id");
+                    if (id != null) {
+>>>>>>> 538f6fc28656e3f80e9c05b9b9cd5ecbdc2b6b30
                         response.sendRedirect("professeur.jsp");
                     }
                     else {

@@ -6,7 +6,14 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<<<<<<< HEAD
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jsp/jstl/sql" %>
+=======
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix = "sql" uri = "http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix = "x" uri = "http://java.sun.com/jsp/jstl/xml" %>
+<%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
+>>>>>>> 538f6fc28656e3f80e9c05b9b9cd5ecbdc2b6b30
 <%@page session="true" %>
 <!DOCTYPE html>
 
@@ -66,6 +73,7 @@
             <%
             
                 HttpSession hs = request.getSession();
+<<<<<<< HEAD
                 int id = 0;
                 if (request.getAttribute("id")!= null) {
                     id = (Integer)request.getAttribute("id");
@@ -76,6 +84,16 @@
                     }
                     else {
                         response.sendRedirect("loginChef.jsp");
+=======
+                String id;
+                if (request.getAttribute("id")!=null) {
+                    id = (String)request.getAttribute("id");
+                    if (id != null) {
+                        response.sendRedirect("chef.jsp");
+                    }
+                    else {
+                        getServletContext().getRequestDispatcher("loginChef.jsp").forward(request, response);
+>>>>>>> 538f6fc28656e3f80e9c05b9b9cd5ecbdc2b6b30
                     }
                 }
 

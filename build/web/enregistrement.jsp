@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 <%-- Recuperer le dernier element de compte et prendre son id afin de l'incrementer
+=======
+<%-- 
+>>>>>>> 538f6fc28656e3f80e9c05b9b9cd5ecbdc2b6b30
     Document   : enregistrement
     Created on : 15 mai 2018, 18:21:03
     Author     : Asus R511L
 --%>
 
+<<<<<<< HEAD
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
@@ -13,6 +18,14 @@
 <%
     HttpSession sesion = request.getSession();
 %>
+=======
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix = "sql" uri = "http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix = "x" uri = "http://java.sun.com/jsp/jstl/xml" %>
+<%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
+>>>>>>> 538f6fc28656e3f80e9c05b9b9cd5ecbdc2b6b30
 <!DOCTYPE html>
 
 <html>
@@ -24,15 +37,20 @@
         
     </head>
     
+<<<<<<< HEAD
     <body style="font-family: 'Open Sans', sans-serif; height: 100vh; background: url('Images/photo_bg.jpg') 50% fixed; background-size: cover;">
         
         <sql:setDataSource var = "lecture" driver = "com.mysql.jdbc.Driver" url = "jdbc:mysql://localhost:3306/psel" user = "root"  password = ""/>
+=======
+    <body>
+>>>>>>> 538f6fc28656e3f80e9c05b9b9cd5ecbdc2b6b30
         
         <!-- Importation du fichier header.jsp  -->
         <jsp:include page="header.jsp"></jsp:include>
         
         <br>
         <ul class="tabs tabs-fixed-width tab-demo z-depth-1" style="position: relative; width: 90%;">
+<<<<<<< HEAD
             <li class="tab"><a href="#utilisateurs">Utilisateurs</a></li>
             <li class="tab"><a href="#classes">Classes</a></li>
         </ul>
@@ -59,20 +77,51 @@
                         <div class="input-field col s6">
                             <i class="material-icons prefix">account_circle</i>
                             <input id="nom" name="nom" type="text" required="required">
+=======
+            <li class="tab"><a class="active" href="#utilisateurs">Utilisateurs</a></li>
+            <li class="tab"><a href="#classes">Classes</a></li>
+        </ul>
+        <br>
+        <div id="utilisateurs" class="col s12 center">
+            <p style="text-align: center; font-family: Verdana; font-size: 1.5em;">Enregistrement des membres qui pourront avoir un accès total à l'application. Veuilez remplir les champs ci-dessous.</p>
+            <div class="row" style="position: relative; width: 70%; margin-left: 15%;">
+                <form class="col s12" onsubmit="return enregistrerUser();" name="enregistrementUser" id="enregistrementUser" method="" action="">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <select id="statut" name="statut" class="browser-default" style="position: relative; width: 91%; margin-left: 9.5%;" required="required">
+                                <option value="statut" disabled selected>Statut</option>
+                                <option value="élève">Elève</option>
+                                <option value="professeur">Professeur</option>
+                                <option value="direction">Direction</option>
+                            </select>
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="nom" type="text" required="required">
+>>>>>>> 538f6fc28656e3f80e9c05b9b9cd5ecbdc2b6b30
                             <label for="nom">Nom</label>
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix">account_circle</i>
+<<<<<<< HEAD
                             <input id="prenom" name="prenom" type="text" required="required">
+=======
+                            <input id="prenom" type="text" required="required">
+>>>>>>> 538f6fc28656e3f80e9c05b9b9cd5ecbdc2b6b30
                             <label for="prenom">Prenom</label>
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix">email</i>
+<<<<<<< HEAD
                             <input id="mail" name="mail" type="email" required="required">
+=======
+                            <input id="mail" type="email" required="required">
+>>>>>>> 538f6fc28656e3f80e9c05b9b9cd5ecbdc2b6b30
                             <label for="mail">Email</label>
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix">phone</i>
+<<<<<<< HEAD
                             <input id="telephone" name="telephone" type="tel" required="required">
                             <label for="telephone">Telephone</label>
                         </div>
@@ -172,10 +221,73 @@
                 </li>
             </ul>
             
+=======
+                            <input id="telephone" type="tel" required="required">
+                            <label for="telephone">Telephone</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix"></i>
+                            <input disabled="disabled">
+                            <label></label>
+                        </div>
+                        <div class="input-field col s6">
+                            <select id="classeUser" name="classeUser" class="browser-default" style="position: relative; width: 91%; height: auto; margin-left: 9.5%;" required="required" multiple="multiple" disabled="disabled">
+                                <option disabled selected>Classe</option>
+                                <option value="ingInfo2">ING INFO 2</option>
+                                <option value="ingTelecom2">ING TELECOM 2</option>
+                                <option value="ingE2i2">ING E2I 2</option>
+                            </select>
+                        </div>
+                        <div class="input-field col s6">
+                            <select id="matiereUser" name="matiereUser" class="browser-default" style="position: relative; width: 91%; height: auto; margin-left: 9.5%;" required="required" multiple="multiple" disabled="disabled">
+                                <option disabled selected>Matière</option>
+                                <option value="code1">Code1 Matière1</option>
+                                <option value="code2">Code2 Matière2</option>
+                                <option value="code3">Code3 Matière3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn btn-large tooltipped" data-position="bottom" data-tooltip="Un mail sera envoyé à email qui comportera son mot de passe" type="submit" style="position: relative; margin-left: 83%; background: #00E676;">Enregistrer</button>
+                </form>
+            </div>
+            <br><br>
+            <div class="col s12" style="position: relative; width: 90%; margin-left: 5%;">
+                <div class="row" style="position: relative; width: 50%; margin-left: 25%;">
+                    <form class="col s12" onsubmit="return rechercheUser();" name="rechercheUser" id="rechercheUser" method="" action="">
+                        <div class="row">
+                            <div class="input-field col s8">
+                                <i class="material-icons prefix">search</i>
+                                <input id="recherche" type="text" required="required">
+                                <label for="recherche">Rechercher une matière</label>
+                            </div> 
+                            <div class="input-field col s4">
+                                <button class="btn btn-large" style="background: #00E676;">Rechercher</button>
+                            </div> 
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Affiche la liste des utilisateurs -->
+                <sql:setDataSource driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3309/db" user="root" password=""/>
+                <!-- sélectionner tous les utilisateurs -->
+                <sql:query sql="SELECT * FROM compte ORDER BY username DESC" var="comptes"/>
+                <!-- afficher les utilisateurs -->
+                <ul class="collapsible" style="position: relative; width: 90%; margin-left: 5%;">
+                    <c:forEach var="compte" begin="0" items="${comptes.rows}">
+                        <li>
+                            <div class="collapsible-header">
+                                <i class="material-icons left">person</i>
+                                <span class="title"><c:out value="${compte.username}"/></span>
+                            </div>
+                        </li>
+                    </c:forEach>
+                </ul>
+>>>>>>> 538f6fc28656e3f80e9c05b9b9cd5ecbdc2b6b30
                 
                 <br><br>
             </div>
         </div>
+<<<<<<< HEAD
         
         <div id="classes" class="col s12 center">
             <p style="text-align: center; font-family: Verdana; font-size: 1.5em; color: white;">Enregistrement des différentes classes de chauque filière de chaque école. Veuilez remplir les champs ci-dessous.</p>
@@ -324,6 +436,56 @@
                     </div>
                 </li>
             </ul>
+=======
+        <div id="classes" class="col s12 center">
+            <p style="text-align: center; font-family: Verdana; font-size: 1.5em;">Enregistrement des différentes classes de chauque filière de chaque école. Veuilez remplir les champs ci-dessous.</p>
+            <div class="row" style="position: relative; width: 70%; margin-left: 15%;">
+                <form class="col s12" onsubmit="return enregistrerClasse();" id="enregistrementClasse" name="enregistrementClasse" method="" action="">
+                    <div class="row" id="dynamic_field">
+                        <div class="input-field col s8">
+                            <i class="material-icons prefix">work</i>
+                            <input id="classe" type="text" required="required">
+                            <label for="classe">Classe</label>
+                        </div>
+                        <div class="input-field col s4">
+                            <button class="btn btn-large" id="add" name="add" onclick="addMatiere();" style="position: relative; background: #00E676; font-size: 0.9em;">Ajouter une nouvelle matière</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-large" type="submit" style="position: relative; margin-left: 83%; background: #00E676;">Enregistrer</button>
+                </form>
+            </div>
+            <br><br>
+            <div class="col s12" style="position: relative; width: 90%; margin-left: 5%;">
+                <div class="row" style="position: relative; width: 50%; margin-left: 25%;">
+                    <form class="col s12" onsubmit="return rechercheClasse();" name="rechercheClasse" id="rechercheClasse" method="" action="">
+                        <div class="row">
+                            <div class="input-field col s8">
+                                <i class="material-icons prefix">search</i>
+                                <input id="recherche" type="text" required="required">
+                                <label for="recherche">Rechercher une matière</label>
+                            </div> 
+                            <div class="input-field col s4">
+                                <button class="btn btn-large" style="background: #00E676;">Rechercher</button>
+                            </div> 
+                        </div>
+                    </form>
+                </div>
+                <ul class="collapsible" style="position: relative; width: 90%; margin-left: 5%;">
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">work</i>Nom de la classe</div>
+                        <div class="collapsible-body">
+                            <div class="collapsible-header">
+                                <div>
+                                    <i class="material-icons left">book</i>
+                                </div>
+                                <div>
+                                <span class="title">Nom de la matiere</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+>>>>>>> 538f6fc28656e3f80e9c05b9b9cd5ecbdc2b6b30
                 <br><br>
             </div>
         </div>
@@ -336,6 +498,7 @@
         
         <script>
             var statut = document.getElementById('statut');
+<<<<<<< HEAD
             var matricule = document.getElementById('matricule');
             
             statut.addEventListener('change', function() {
@@ -345,11 +508,30 @@
                 }
                 if ((valeur === "Direction") || (valeur === "Professeur")) {
                     matricule.disabled = true;
+=======
+            var classe = document.getElementById('classeUser');
+            var matiere = document.getElementById('matiereUser');
+            
+            statut.addEventListener('change', function() {
+                var valeur = statut.options[statut.selectedIndex].innerHTML;
+                if (valeur === "Professeur") {
+                    classe.disabled = false;
+                    matiere.disabled = false;
+                }
+                if (valeur === "Direction") {
+                    matiere.disabled = true;
+                    classe.disabled = true;
+                }
+                if (valeur === "Elève") {
+                    matiere.disabled = true;
+                    classe.disabled = false;
+>>>>>>> 538f6fc28656e3f80e9c05b9b9cd5ecbdc2b6b30
                 }
             });
         </script>
         
         <script>
+<<<<<<< HEAD
             function validateUser() {
                 
                 var link = document.getElementById("user");
@@ -405,6 +587,17 @@
                 alert("Enregistrement de la matière éffectué !!!");
                 
             }
+=======
+            function enregistrerUser() {
+                var form = document.getElementById("enregistrementUser");
+                var statut = document.getElementById("statut").value;
+            
+                if (statut === "statut") {
+                    alert("Veuillez sélectionner un statut pour éffectuer un enregistrement");
+                    document.enregistrementUser.statut.focus();
+                    return false;
+                }
+>>>>>>> 538f6fc28656e3f80e9c05b9b9cd5ecbdc2b6b30
         </script>
         
         <script>
@@ -485,10 +678,18 @@
                 
             } --%>
         </script>
+<<<<<<< HEAD
         <%--
         <script>
             function dynamic() {
                 return '<div></div>';
+=======
+        
+        <script>
+            var i=2;
+            function dynamic() {
+                return '<div><div class="input-field col s6"><i class="material-icons prefix">book</i><input id="code" type="text" required="required"><label for="code">Code matière N°'+i+'</label></div><div class="input-field col s6"><i class="material-icons prefix">book</i><input id="matiere" type="text" required="required"><label for="matiere">Matiere</label></div><div class="input-field col s12"><p style="text-align: center; font-family: Verdana; font-size: 1.2em;">(Exemple de saisie pour le syllabus) I - le titre : le nombre d heure ; Ainsi de suite ;</p></div><div class="input-field col s8"><i class="material-icons prefix">book</i><textarea class="materialize-textarea" id="syllabus" type="text" required="required"></textarea><label for="syllabus">Syllabus</label></div><div class="input-field col s4"><button class="btn btn-large" id="remove" name="remove" onclick="removeMatiere(this);" style="position: relative; background: #00E676; font-size: 0.9em;">Supprimer la matière</button></div></div>';
+>>>>>>> 538f6fc28656e3f80e9c05b9b9cd5ecbdc2b6b30
             }
             
             function addMatiere() {
@@ -501,7 +702,10 @@
                 document.getElementById("dynamic_field").removeChild(div.parentNode.parentNode.parentNode);
             }
         </script>
+<<<<<<< HEAD
         --%>
+=======
+>>>>>>> 538f6fc28656e3f80e9c05b9b9cd5ecbdc2b6b30
         <!-- Fin -->
         
         <!-- Importation du fichier footer.jsp  -->
@@ -512,4 +716,8 @@
       
     </body>
     
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 538f6fc28656e3f80e9c05b9b9cd5ecbdc2b6b30

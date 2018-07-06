@@ -39,23 +39,6 @@
         
         <script>
             
-            <%
-            
-                HttpSession hs = request.getSession();
-                int id = 0;
-                if (request.getAttribute("id")!= null) {
-                    id = (Integer)request.getAttribute("id");
-                    if (id != 0) {
-                        session.setAttribute("username", request.getAttribute("username"));
-                        session.setAttribute("id", id);
-                        response.sendRedirect("utilisateurs.jsp");
-                    }
-                    else {
-                        System.out.println("Connexion échouée");
-                    }
-                }
-
-            %>
             function validate() {
                 
                 var link = document.getElementById("connexion");

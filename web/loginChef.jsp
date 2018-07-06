@@ -30,56 +30,9 @@
             <input type="password" placeholder="Mot de passe" id="password" name="password" />
             <button type="submit" name="valider">Valider</button>
         </form>
-        <%--
-        
-        <%
-            if(request.getParameter("valider")!=null) {
-                String user = request.getParameter("username");
-                pageContext.setAttribute("user", new String(user));
-                String pwd = request.getParameter("password");
-                pageContext.setAttribute("pwd", new String(pwd));
-            }
-        
-        %>
-
-        <sql:setDataSource var = "lecture" driver = "com.mysql.jdbc.Driver" url = "jdbc:mysql://localhost:3309/db" user = "root"  password = ""/>
-        
-        <sql:query dataSource = "${lecture}" var = "comptes">
-           SELECT * FROM compte ORDER BY username DESC;
-        </sql:query>
-        <c:set var="i" value="${0}" />
-        <c:set var="niveau" value="Elève" />
-        <c:forEach var="compte" begin="0" items="${comptes.rows}">
-            <c:choose>
-                <c:when test="${user eq compte.username and pwd eq compte.password and compte.statut eq niveau}">
-                    <c:redirect url="chef.jsp" />
-                </c:when>
-                <c:otherwise>
-                    <c:redirect url="loginchef.jsp" />
-                </c:otherwise>
-            </c:choose>
-        </c:forEach>
-        --%>
-        
         
         <script>
-            <%
             
-                HttpSession hs = request.getSession();
-                int id = 0;
-                if (request.getAttribute("id")!= null) {
-                    id = (Integer)request.getAttribute("id");
-                    if (id != 0) {
-                        session.setAttribute("username", request.getAttribute("username"));
-                        session.setAttribute("id", id);
-                        response.sendRedirect("chef.jsp");
-                    }
-                    else {
-                        response.sendRedirect("loginChef.jsp");
-                    }
-                }
-
-            %>
             function validate() {
                 
                 var link = document.getElementById("connexion");

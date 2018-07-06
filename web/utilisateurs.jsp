@@ -241,13 +241,6 @@
             }
             </script>
             
-            
-        
-        <script>
-            function recherche() {
-                
-            }
-        </script>
         <!-- Fin -->
         
         

@@ -5,9 +5,12 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jsp/jstl/sql" %>
 <%@page session="true" %>
+=======
+>>>>>>> 538f6fc28656e3f80e9c05b9b9cd5ecbdc2b6b30
 <!DOCTYPE html>
 
 <html>
@@ -28,7 +31,11 @@
             <h1>Login</h1>
             <select id="statut" name="statut" autofocus>
                 <option value="statut" disabled selected>Statut</option>
+<<<<<<< HEAD
                 <option value="chef">Chef</option>
+=======
+                <option value="eleve">Elève</option>
+>>>>>>> 538f6fc28656e3f80e9c05b9b9cd5ecbdc2b6b30
                 <option value="professeur">Professeur</option>
                 <option value="direction">Direction</option>
             </select>
@@ -42,6 +49,7 @@
             <%
             
                 HttpSession hs = request.getSession();
+<<<<<<< HEAD
                 int id = 0;
                 if (request.getAttribute("id")!= null) {
                     id = (Integer)request.getAttribute("id");
@@ -52,6 +60,16 @@
                     }
                     else {
                         System.out.println("Connexion échouée");
+=======
+                String id;
+                if (request.getAttribute("id")!=null) {
+                    id = (String)request.getAttribute("id");
+                    if (id != null) {
+                        response.sendRedirect("utilisateurs.jsp");
+                    }
+                    else {
+                        response.sendRedirect("login.jsp");
+>>>>>>> 538f6fc28656e3f80e9c05b9b9cd5ecbdc2b6b30
                     }
                 }
 

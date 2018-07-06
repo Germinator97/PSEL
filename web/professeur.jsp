@@ -131,16 +131,6 @@
         
         <!-- Javascript -->
         <!-- Début -->
-        <script>
-            function recherche() {
-                
-            }
-            
-            
-            function valider() {
-                
-            }
-        </script>
         
         <script>
             M.AutoInit();
